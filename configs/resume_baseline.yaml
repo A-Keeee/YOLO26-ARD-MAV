@@ -1,0 +1,13 @@
+# 基线续训模板：model 需指向尚未完成训练的检查点；已完成的 100 轮实验不能直接续训。
+model: /home/ake/SJTU/graduation-project/ultralytics/ARD-MAV/runs/yolo26n_ard_mav_exp1/weights/last.pt
+data: dataset.yaml
+task: detect
+resume: true
+epochs: 100
+batch: 16
+imgsz: 640
+device: 0
+
+# 续训沿用检查点中的输出目录、优化器和其余参数。
+project: ../runs
+name: yolo26n_ard_mav_exp1

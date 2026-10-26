@@ -1,0 +1,8 @@
+# 全局数据：已转换并去重，可直接训练。重新从视频转换需显式选择 prepare.yaml。
+path: /home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: Drone

@@ -1,0 +1,8 @@
+# 从已去重的整图数据生成局部训练/验证图，不重新从原始视频抽取已删除帧。
+mode: local
+source_data: dataset.yaml
+data: dataset_local.yaml
+crop_size: 320 # 原图像素；训练时再缩放到 imgsz=640。
+background_ratio: 0.25 # 正样本源图额外抽取一个背景块的概率；空标注源图始终保留一个背景块。
+seed: 0
+workers: 8

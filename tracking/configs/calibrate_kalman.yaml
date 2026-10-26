@@ -1,0 +1,32 @@
+# 只运行检测推理和离线参数搜索，不训练 YOLO，不使用测试视频调参。
+track_config: track_glad.yaml
+dataset: /home/ake/SJTU/graduation-project/dataset/ARD-MAV
+splits: /home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/splits.yaml
+project: ../../runs
+name: kalman_calibration
+train_videos: [phantom84, phantom80, phantom61]
+val_videos: [phantom04, phantom73, phantom32]
+max_frames: 0 # 0 使用完整视频；快速检查可设为 300。
+# 每 30 帧从实际检测状态出发，停止观测校正，仅补偿相机运动并预测。
+# 按各视频、各预测跨度的 RMSE 等权平均选参；数值应小于 local_patience。
+forecast_horizons: [1, 5, 15, 29]
+
+# 当前实现 Q=q*I、R=r*I、P0=p*I。同步缩放三者不改变卡尔曼增益，
+# 因此固定 R=1，只搜索可辨识的 Q/R、P0/R；不是估计出三者的物理绝对方差。
+process_noise_ratios:
+  [
+    0.000001,
+    0.00001,
+    0.0001,
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    1.0,
+    3.0,
+    10.0,
+    100.0,
+  ]
+initial_covariance_ratios: [0.01, 0.1, 1.0, 10.0, 100.0]

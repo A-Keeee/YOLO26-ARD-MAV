@@ -1,0 +1,41 @@
+# GLAD 公开方法结构 + YOLO26n；不使用 ByteTrack/DeepSORT，不输出多目标 ID。
+# 不能称为严格数值复现：论文未公开完整 KF 代码、噪声矩阵及全部阈值修正系数。
+global_weights: ../weights/global_best.pt
+local_weights: ../weights/local_best.pt
+classifier_weights: ../weights/Net_best.pth
+source: /home/ake/SJTU/graduation-project/dataset/ARD-MAV/videos/phantom12.mp4
+project: ../../runs
+name: glad_yolo26
+
+imgsz: 640
+device: 0
+global_conf: 0.5 # 论文 Table II: T0。
+local_conf: 0.1 # 论文 Table II: T1。
+crop_size: 300 # 论文 Eq.4: L = 300 + 4*T_lost，不是训练时的 320 裁剪尺寸。
+roi_growth: 4
+local_patience: 30 # 论文举例：连续丢失 30 帧后，下一帧切回全局。
+max_frames: 0
+show: false
+
+kalman:
+  # 状态 (vx, vy, ax, ay)，时间步长为一帧。
+  # 下列数值是可调实现选值，论文和公开代码均未给出原始 Q/R/P。
+  process_noise: 0.01
+  measurement_noise: 1.0
+  initial_covariance: 1.0
+
+motion:
+  grid: [30, 20] # 论文：均匀网格 LK + RANSAC 单应变换。
+  ransac_threshold: 3.0 # 官方基础代码的重投影阈值。
+  min_matches: 9
+  difference_threshold: 5 # 论文 T2。
+  # alpha/beta 原值未公开；以下是实现选值，不声称与作者原实验一致。
+  light_coefficient: 1.0
+  background_coefficient: 0.1
+  min_area: 30 # 连通区域像素数下限。
+  merge_distance: 15 # 论文 D1。
+  angle_variance: 0.8 # 论文 T3，使用方差；不使用基础 demo 中的 std/mean。
+  speed_variance: 0.8 # 论文 T4。
+  min_speed: 1.0 # 论文 T5，像素/帧。
+  open_iterations: 1 # 形态学次数及 CNN 输入边缘余量参考官方基础实现。
+  close_iterations: 3

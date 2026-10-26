@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-10-23T17:06:59.661629+08:00",
+  "dataset": "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO",
+  "status": "completed_and_verified",
+  "evidence": "duplicate_frames.json",
+  "policy": "Delete verified byte-identical training images and their labels; retain validation and test data and raw source videos/XML.",
+  "train_image_range": ["phantom44_0420.jpg", "phantom44_1199.jpg"],
+  "retained_val_image_range": ["phantom32_0001.jpg", "phantom32_0780.jpg"],
+  "preflight_sha256_equal_pairs": 780,
+  "before": {
+    "train": {
+      "images": 64713,
+      "labels": 64713
+    },
+    "val": {
+      "images": 14447,
+      "labels": 14447
+    },
+    "test": {
+      "images": 28337,
+      "labels": 28337
+    }
+  },
+  "removed_images": 780,
+  "removed_labels": 780,
+  "removed_cache": ["/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train.cache"],
+  "verification": {
+    "timestamp": "2026-10-23T17:07:50.971097+08:00",
+    "splits": {
+      "train": {
+        "images": 63933,
+        "labels": 63933,
+        "objects": 63329,
+        "background_images": 605,
+        "missing_images": 0,
+        "missing_labels": 0
+      },
+      "val": {
+        "images": 14447,
+        "labels": 14447,
+        "objects": 14187,
+        "background_images": 277,
+        "missing_images": 0,
+        "missing_labels": 0
+      },
+      "test": {
+        "images": 28337,
+        "labels": 28337,
+        "objects": 28160,
+        "background_images": 177,
+        "missing_images": 0,
+        "missing_labels": 0
+      }
+    },
+    "checked_images": 106717,
+    "sha256_candidates": 8897,
+    "cross_split_exact_duplicate_groups": 0,
+    "method": "Group every image by byte size, then SHA-256 all members of groups spanning splits. This detects byte-identical JPEGs, not perceptual or recompressed duplicates.",
+    "remaining_phantom44_train_frames": [1, 419],
+    "train_cache_absent": true,
+    "remaining_previously_reported_edge_boxes": 52
+  },
+  "after": {
+    "train": {
+      "images": 63933,
+      "labels": 63933
+    },
+    "val": {
+      "images": 14447,
+      "labels": 14447
+    },
+    "test": {
+      "images": 28337,
+      "labels": 28337
+    }
+  },
+  "retained_val_test_metadata_unchanged": true
+}

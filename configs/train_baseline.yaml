@@ -1,0 +1,32 @@
+# 基础参数沿用 ultralytics/cfg/default.yaml；这里的相对路径相对于本配置文件。
+model: /home/ake/SJTU/graduation-project/ultralytics/ARD-MAV/weights/yolo26n.pt # 官方基线预训练权重。
+data: dataset.yaml
+task: detect
+epochs: 100
+imgsz: 640
+batch: 8 # 显存不足时调小，例如 8 或 4。
+device: 0 # 第一张 NVIDIA GPU；也可改成 cpu。
+workers: 8
+patience: 100
+cache: false
+
+# auto 自动选择优化器和学习率；手动调整 lr0 时，将 optimizer 改为 SGD 或 AdamW 等。
+optimizer: auto
+lr0: 0.01
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3.0
+cos_lr: false
+close_mosaic: 10
+amp: true
+seed: 0
+deterministic: true
+
+project: ../runs
+name: yolo26n_ard_mav
+exist_ok: false
+save: true
+plots: true
+val: true
+resume: false # 续训时同时把 model 改为尚未完成训练的 weights/last.pt。

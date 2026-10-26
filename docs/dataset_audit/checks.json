@@ -1,0 +1,777 @@
+{
+  "labels_and_splits": {
+    "splits": {
+      "train": {
+        "videos": 37,
+        "images": 64713,
+        "labels": 64713,
+        "objects": 64109,
+        "background_images": 605,
+        "missing_labels": [],
+        "missing_images": [],
+        "missing_from_xml": [],
+        "extra_vs_xml": [],
+        "video_set_matches_manifest": true,
+        "median_box_at640_px": [4.67, 3.33],
+        "max_side_under8px_pct": 70.23
+      },
+      "val": {
+        "videos": 8,
+        "images": 14447,
+        "labels": 14447,
+        "objects": 14187,
+        "background_images": 277,
+        "missing_labels": [],
+        "missing_images": [],
+        "missing_from_xml": [],
+        "extra_vs_xml": [],
+        "video_set_matches_manifest": true,
+        "median_box_at640_px": [4.33, 3.33],
+        "max_side_under8px_pct": 82.43
+      },
+      "test": {
+        "videos": 15,
+        "images": 28337,
+        "labels": 28337,
+        "objects": 28160,
+        "background_images": 177,
+        "missing_labels": [],
+        "missing_images": [],
+        "missing_from_xml": [],
+        "extra_vs_xml": [],
+        "video_set_matches_manifest": true,
+        "median_box_at640_px": [5.0, 3.33],
+        "max_side_under8px_pct": 71.35
+      }
+    },
+    "errors": [],
+    "xml_errors": [],
+    "xml_mismatches": [],
+    "duplicate_label_rows": [],
+    "edge_cases": [
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1672.txt",
+        [0.0, 0.00677083, 0.47685185, 0.01458333, 0.01296296]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1673.txt",
+        [0.0, 0.00651042, 0.47685185, 0.0140625, 0.01296296]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1674.txt",
+        [0.0, 0.00677083, 0.47685185, 0.01458333, 0.01296296]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1675.txt",
+        [0.0, 0.00625, 0.47638889, 0.01354167, 0.01203704]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1676.txt",
+        [0.0, 0.00598958, 0.47592593, 0.01302083, 0.01111111]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1677.txt",
+        [0.0, 0.00572917, 0.47546296, 0.0125, 0.01203704]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1678.txt",
+        [0.0, 0.00494792, 0.47546296, 0.0109375, 0.01203704]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1680.txt",
+        [0.0, 0.00416667, 0.47361111, 0.009375, 0.01203704]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1681.txt",
+        [0.0, 0.00338542, 0.47314815, 0.0078125, 0.01296296]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom49_1749.txt",
+        [0.0, 0.00416667, 0.47314815, 0.009375, 0.01481481]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom16_1035.txt",
+        [0.0, 0.40130208, 0.01898148, 0.0265625, 0.03981481]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom16_1036.txt",
+        [0.0, 0.39609375, 0.0162037, 0.03072917, 0.03425926]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom16_1037.txt",
+        [0.0, 0.39244792, 0.01435185, 0.02760417, 0.03055556]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom16_1038.txt",
+        [0.0, 0.38932292, 0.0125, 0.02760417, 0.02685185]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom16_1039.txt",
+        [0.0, 0.38958333, 0.01064815, 0.02604167, 0.02314815]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom16_1155.txt",
+        [0.0, 0.26380208, 0.01574074, 0.0296875, 0.03333333]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom23_1835.txt",
+        [0.0, 0.75208333, 0.00972222, 0.025, 0.0212963]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom23_1836.txt",
+        [0.0, 0.75104167, 0.00740741, 0.02291667, 0.01666667]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom23_1878.txt",
+        [0.0, 0.75520833, 0.00925926, 0.02395833, 0.02037037]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom42_1292.txt",
+        [0.0, 0.56614583, 0.00416667, 0.00833333, 0.01018519]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom42_1293.txt",
+        [0.0, 0.56666667, 0.00462963, 0.00833333, 0.01111111]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom42_1314.txt",
+        [0.0, 0.57135417, 0.00416667, 0.00833333, 0.01018519]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom42_1315.txt",
+        [0.0, 0.57161458, 0.00416667, 0.0078125, 0.01018519]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom42_1316.txt",
+        [0.0, 0.57135417, 0.00462963, 0.00729167, 0.01111111]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom12_0521.txt",
+        [0.0, 0.01302083, 0.28425926, 0.02708333, 0.03333333]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom12_0522.txt",
+        [0.0, 0.01145833, 0.28055556, 0.02395833, 0.03148148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom12_0523.txt",
+        [0.0, 0.01041667, 0.27685185, 0.021875, 0.03148148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom12_0532.txt",
+        [0.0, 0.01041667, 0.24444444, 0.021875, 0.03148148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom13_0991.txt",
+        [0.0, 0.00885417, 0.29722222, 0.01875, 0.01851852]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom13_1036.txt",
+        [0.0, 0.00963542, 0.31203704, 0.0203125, 0.01851852]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom51_1296.txt",
+        [0.0, 0.0125, 0.85462963, 0.02604167, 0.02222222]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom51_1297.txt",
+        [0.0, 0.00963542, 0.85185185, 0.0203125, 0.02222222]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom51_1365.txt",
+        [0.0, 0.00677083, 0.60555556, 0.01458333, 0.01481481]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/train/phantom51_1366.txt",
+        [0.0, 0.00703125, 0.60231481, 0.01510417, 0.01574074]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/val/phantom29_1306.txt",
+        [0.0, 0.30989583, 0.00462963, 0.01041667, 0.01111111]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom08_0383.txt",
+        [0.0, 0.01640625, 0.77268519, 0.03385417, 0.03981481]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom08_0438.txt",
+        [0.0, 0.00885417, 0.6162037, 0.01875, 0.0287037]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom08_0439.txt",
+        [0.0, 0.01197917, 0.60740741, 0.025, 0.02962963]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom08_0440.txt",
+        [0.0, 0.01432292, 0.59814815, 0.0296875, 0.02777778]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1209.txt",
+        [0.0, 0.4828125, 0.00416667, 0.00416667, 0.01018519]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1210.txt",
+        [0.0, 0.48359375, 0.0037037, 0.0046875, 0.00925926]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1211.txt",
+        [0.0, 0.484375, 0.00324074, 0.00520833, 0.00833333]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1212.txt",
+        [0.0, 0.48463542, 0.00324074, 0.0046875, 0.00833333]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1213.txt",
+        [0.0, 0.48515625, 0.00231481, 0.00572917, 0.00648148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1214.txt",
+        [0.0, 0.48541667, 0.00231481, 0.00520833, 0.00648148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1215.txt",
+        [0.0, 0.4859375, 0.00231481, 0.00520833, 0.00648148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1216.txt",
+        [0.0, 0.48671875, 0.00231481, 0.00572917, 0.00648148]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1217.txt",
+        [0.0, 0.48697917, 0.00277778, 0.00520833, 0.00740741]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1218.txt",
+        [0.0, 0.4875, 0.00277778, 0.00416667, 0.00740741]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1219.txt",
+        [0.0, 0.48802083, 0.0037037, 0.00520833, 0.00925926]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom41_1220.txt",
+        [0.0, 0.48854167, 0.0037037, 0.00520833, 0.00925926]
+      ],
+      [
+        "/home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/labels/test/phantom47_0982.txt",
+        [0.0, 0.56848958, 0.00740741, 0.01822917, 0.01666667]
+      ]
+    ],
+    "video_overlap": false,
+    "image_name_overlap": false,
+    "source_video_coverage": true,
+    "split_matches_seed0": true
+  },
+  "image_structure_and_hashes": {
+    "checked_jpeg_files": 107497,
+    "structure_issues": [],
+    "hash_candidates": 10381,
+    "scope": "All JPEG headers, dimensions, channels and end markers checked; hashes cover every cross-split candidate with matching byte size. Full entropy decoding is performed only on sampled frames.",
+    "cross_split_exact_duplicate_groups": 780
+  },
+  "cache": {
+    "train": {
+      "version": "1.0.3",
+      "stored_results": [64713, 0, 605, 0, 64713],
+      "cached_images": 64713,
+      "expected_images": 64713,
+      "hash_matches": true,
+      "unknown_paths": [],
+      "label_mismatches": [],
+      "messages": []
+    },
+    "val": {
+      "version": "1.0.3",
+      "stored_results": [14447, 0, 277, 0, 14447],
+      "cached_images": 14447,
+      "expected_images": 14447,
+      "hash_matches": true,
+      "unknown_paths": [],
+      "label_mismatches": [],
+      "messages": []
+    }
+  },
+  "source_frame_samples": [
+    {
+      "split": "train",
+      "sequence": "phantom84",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom80",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom61",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom49",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom38",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom16",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom14",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom54",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom39",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom28",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom81",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom60",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom23",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom75",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom59",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom74",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom71",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom42",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom76",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom77",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom85",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom12",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom13",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom22",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom44",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom79",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom36",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom51",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom64",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom45",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom56",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom66",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom68",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom40",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom57",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom55",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom73",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "train",
+      "sequence": "phantom06",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom32",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom78",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom50",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom29",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom02",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom20",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "val",
+      "sequence": "phantom04",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom09",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom10",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom05",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom08",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom19",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom41",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom30",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom43",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom46",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom47",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom58",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom63",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom65",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom70",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    },
+    {
+      "split": "test",
+      "sequence": "phantom86",
+      "sampled_frames": 4,
+      "seek_differences": [],
+      "sequential_recheck": false,
+      "confirmed_mismatches": []
+    }
+  ]
+}

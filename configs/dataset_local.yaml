@@ -1,0 +1,9 @@
+# val 是根据真值裁剪的局部验证集，只监控局部模型训练，不代表整图/视频检测精度。
+path: /home/ake/SJTU/graduation-project/dataset/local_320
+train: images/train
+val: images/val
+# 保留原始整图测试入口；没有生成根据真值定位的测试裁剪。
+# 仅验证局部模型的整图表现，完整全局/局部系统仍需另行评估原始视频。
+test: /home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/images/test
+names:
+  0: Drone

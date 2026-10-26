@@ -1,0 +1,24 @@
+# 原始视频和 XML 标注的位置；转换结果位置由 dataset.yaml 的 path 决定。
+source: /home/ake/SJTU/graduation-project/dataset/ARD-MAV
+data: dataset.yaml
+frame_stride: 1 # 1 保留所有已标注帧；5 表示从第 1 帧起每 5 帧取一帧。
+seed: 0
+val_videos: 8 # 其余 45 个视频中，8 个用于验证、37 个用于训练。
+
+# 作者指定的 15 个测试视频，始终与训练/验证视频分开。
+test_videos:
+  - phantom05
+  - phantom08
+  - phantom09
+  - phantom10
+  - phantom19
+  - phantom30
+  - phantom41
+  - phantom43
+  - phantom46
+  - phantom47
+  - phantom58
+  - phantom63
+  - phantom65
+  - phantom70
+  - phantom86
