@@ -21,6 +21,9 @@ ARD-MAV/
 │   ├── dataset_local.yaml         # 局部训练／验证数据与整图测试入口
 │   ├── prepare.yaml               # 原视频和 VOC XML 转换配置
 │   ├── prepare_local.yaml         # 320×320 局部裁剪与背景采样
+│   ├── prepare_local_multiscale.yaml # 新增20%～90%占比裁剪
+│   ├── dataset_local_multiscale.yaml # 旧local_320与新增图块混合读取
+│   ├── train_local_multiscale.yaml # 从现有local权重独立微调50轮
 │   ├── train_global.yaml          # 全局 YOLO26n，默认 50 轮
 │   ├── train_local.yaml           # 局部 YOLO26n，默认 50 轮
 │   ├── train_baseline.yaml        # 历史整图基线
@@ -191,6 +194,77 @@ python scripts/train.py --config configs/train_local.yaml model=runs/yolo26n_loc
 
 这里 `epochs=100` 表示包含已训练轮数的总预算。已完成训练且剥离优化器状态的权重不能按中断检查点恢复；
 更换全局／局部模型或数据准备方式时，应开启独立实验。
+
+## 新增大占比 local 模型
+
+当目标在局部图片中占比很大时，旧训练集的尺度覆盖可能不足。
+旧 local_320 训练标注的长边占比中位数约 4.4%，超过 30% 的仅约 0.41%，验证标注最大约 16%。
+这里新增独立的多尺度实验，保留原模型和原训练方式，不修改当前视频追踪配置。
+占比均指 **目标框长边 ÷ 正方形图片边长**，不是框面积占比。
+
+### 新数据与生成规则
+
+旧数据继续位于 `/home/ake/SJTU/graduation-project/dataset/local_320`，
+新增数据位于 `/home/ake/SJTU/graduation-project/dataset/local_multiscale_90`。
+新数据 YAML 的 train／val 均包含旧目录和新增目录，直接混合读取，不复制或改写旧图片、标签。
+迁移时除更新全局数据路径外，也需要更新这两组目录及新训练配置中的初始化权重路径。
+
+- 从已清理的全局原图生成约 20%、40%、60%、80%、90% 五档占比裁剪，沿用原视频划分。
+- 新增裁剪要求原图目标长边至少 32 像素；更小目标继续通过旧 local_320 参与训练。
+- 训练裁剪在可行范围内随机偏移，验证裁剪确定性居中。目标和其他相交标注都必须完整保留，否则跳过并记录。
+- 每个成功新增正样本有 25% 概率额外生成无标注目标的背景图块。
+- 裁剪边长按整数像素向上取整，实际占比略低于目标档位，写入 manifest.csv 和 summary.yaml。
+- 紧裁剪与上采样不能补出原图不存在的近景细节；局部窗口已经截断目标时，还需另行检查追踪窗口。
+
+修改 [prepare_local_multiscale.yaml](configs/prepare_local_multiscale.yaml) 与
+[dataset_local_multiscale.yaml](configs/dataset_local_multiscale.yaml) 后，首次生成执行：
+
+```bash
+python scripts/prepare.py --config configs/prepare_local_multiscale.yaml
+```
+
+已生成的数据可以直接使用，不要重复执行生成命令。输出目录已存在时脚本会拒绝覆盖；
+需要重做时，将新数据 YAML 的 path 改为另一个尚不存在的目录。旧 320 裁剪配置不受影响。
+
+新增数据目录包含图片／标签、来源和占比清单 manifest.csv、跳过记录 skipped.csv、统计 summary.yaml、
+划分 splits.yaml 和带框预览 samples_train.jpg／samples_val.jpg。
+本次新增训练图 82,523 张（含背景 16,593 张）、验证图 8,550 张（含背景 1,695 张）；
+混合旧数据后为训练 162,189 张、验证 26,571 张。每个新增占比档位分别包含 13,186／1,371 张训练／验证正样本。
+另生成 val_large.txt 与 validation_large.yaml，供单独评估新增 60%／80%／90% 档位及其背景样本。
+本次大占比验证清单共 5,105 张。完整性检查保存到 verification.json，加载和增强检查保存到 loader_verification.json，
+增强后的实际样本预览为 augmentation_samples.jpg。
+这些验证图依赖真实框选择位置，仍不能代表原视频端到端检测精度。
+
+### 独立微调与对比
+
+[train_local_multiscale.yaml](configs/train_local_multiscale.yaml) 从现有 tracking/weights/local_best.pt 初始化，
+使用 resume=false 开启新实验，**50 轮、输入 640、batch 16、GPU 0**。
+优化器为 MuSGD，lr0=0.001、lrf=0.1；关闭 Mosaic、MixUp、Copy-Paste、随机缩放、平移、旋转和透视，
+保留颜色增强与水平翻转，避免近满屏目标被增强再次截断。
+
+```bash
+# 配置预览，不启动训练
+python scripts/train.py --config configs/train_local_multiscale.yaml --dry-run
+
+# 由你手动启动
+python scripts/train.py --config configs/train_local_multiscale.yaml
+```
+
+输出使用独立目录 runs/yolo26n_local_multiscale_ft_50e/，最佳权重为 weights/best.pt，重复实验自动递增。
+不会自动更新 tracking/weights/local_best.pt，也不会改变全局模型或 Net_best.pth。
+
+训练结束后，在相同配置下分别比较旧模型和新模型的大占比表现，例如：
+
+```bash
+yolo detect val model=tracking/weights/local_best.pt data=/home/ake/SJTU/graduation-project/dataset/local_multiscale_90/validation_large.yaml imgsz=640 device=0 project=runs name=local_old_large
+yolo detect val model=runs/yolo26n_local_multiscale_ft_50e/weights/best.pt data=/home/ake/SJTU/graduation-project/dataset/local_multiscale_90/validation_large.yaml imgsz=640 device=0 project=runs name=local_multiscale_large
+
+# 再检查新模型在原尺度验证集上的表现
+yolo detect val model=runs/yolo26n_local_multiscale_ft_50e/weights/best.pt data=configs/dataset_local.yaml imgsz=640 device=0 project=runs name=local_multiscale_original
+```
+
+以上路径按本机目录示例，实验带数字后缀时使用实际权重路径。应同时检查大占比召回率和原尺度表现，
+不要仅根据混合验证集的总 mAP 决定替换已有追踪模型。
 
 ## 权重说明：Net_best.pth 是什么？
 

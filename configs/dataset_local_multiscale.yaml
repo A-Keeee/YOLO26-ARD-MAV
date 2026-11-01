@@ -1,0 +1,11 @@
+# 旧尺度 + 新增20%~90%占比。val 使用真值选取的裁剪，仅监控局部模型训练。
+path: /home/ake/SJTU/graduation-project/dataset/local_multiscale_90
+train:
+  - /home/ake/SJTU/graduation-project/dataset/local_320/images/train
+  - images/train
+val:
+  - /home/ake/SJTU/graduation-project/dataset/local_320/images/val
+  - images/val
+test: /home/ake/SJTU/graduation-project/dataset/ARD-MAV-YOLO/images/test
+names:
+  0: Drone

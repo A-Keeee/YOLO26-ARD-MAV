@@ -1,0 +1,10 @@
+# 只生成新增占比图块，训练配置通过目录列表混合旧 local_320；不复制或修改旧数据。
+mode: local
+source_data: dataset.yaml
+data: dataset_local_multiscale.yaml
+crop_size: 320 # 仅保留旧入口的基础检查；新增裁剪尺寸由目标框与占比计算。
+target_occupancies: [0.2, 0.4, 0.6, 0.8, 0.9] # 目标框长边 / 正方形图片边长。
+min_source_long_side: 32 # 原图像素；更小的目标仍从旧 local_320 参与训练。
+background_ratio: 0.25 # 每个成功新增正样本额外生成背景裁剪的概率。
+seed: 0
+workers: 8
